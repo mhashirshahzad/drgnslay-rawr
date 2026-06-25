@@ -15,7 +15,7 @@ class_name Player2D
 
 
 #region export_variables
-@export var ground_pound_velocity = 1000
+@export var ground_pound_velocity = 800
 
 @export_group("Effects")
 @export var squashed_size:Vector2 = Vector2(1.1, 0.8) 
@@ -32,7 +32,7 @@ class_name Player2D
 @export var jump_buffer_time : float = .1
 @export var super_jump_time : float = .1
 @export var terminal_velocity = 3000
-@export var coyote_time:float = .3
+@export var coyote_time:float = .6
 #endregion
 
 #region variables

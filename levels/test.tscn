@@ -2,9 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://cnwigtqjfoh0a" path="res://icon.svg" id="1_72lju"]
 [ext_resource type="PackedScene" uid="uid://d3tfwn7uc0wox" path="res://player/player.tscn" id="2_lkjt4"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_r4e4k"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_pnvjf"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_pnvjf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j17b"]
 size = Vector2(128.04256, 128.68008)
+
+[sub_resource type="Resource" id="Resource_6g8e2"]
+script = ExtResource("4_pnvjf")
 
 [node name="Test" type="Node2D" unique_id=822041615]
 
@@ -23,3 +29,29 @@ position = Vector2(489.00003, 510.50003)
 scale = Vector2(11.355598, 1.515386)
 shape = SubResource("RectangleShape2D_2j17b")
 debug_color = Color(0.96608466, 0, 0.4856776, 0.41960785)
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=565387311 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(521, 215)
+script = ExtResource("3_r4e4k")
+follow_mode = 2
+follow_target = NodePath("../Player")
+zoom = Vector2(0.8, 0.8)
+tween_resource = SubResource("Resource_6g8e2")
+follow_damping = true
+lookahead = true
+lookahead_time = Vector2(0.5, 0)
+lookahead_acceleration = 0.5
+lookahead_deceleration = 3.0
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=649141127]
+physics_interpolation_mode = 1
+top_level = true
+position = Vector2(521, 215)
+zoom = Vector2(0.8, 0.8)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=216011269]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_pnvjf")

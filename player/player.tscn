@@ -3,20 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cnwigtqjfoh0a" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dgi3mivafnl6p" path="res://player/player.gd" id="1_rkbax"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(126, 125)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
+size = Vector2(128, 129)
 
 [node name="Player" type="CharacterBody2D" unique_id=655304866]
 script = ExtResource("1_rkbax")
-deceleration = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372223244]
 texture = ExtResource("1_oul6g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2052602365]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_rkbax")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=293252007]
-position = Vector2(-3, -131)
-zoom = Vector2(0.8, 0.8)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1676670627]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_g1dw6")
